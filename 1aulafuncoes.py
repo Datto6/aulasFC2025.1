@@ -60,4 +60,31 @@ def rotacionar(lista,numero):
         lista.insert(0,lista.pop())
     return lista
 
-print(rotacionar([1,2,3,4],3))
+def one_time_pad_encrypt(mensagem,chave):
+    numeros=[]
+    chavao=[]
+    for i in mensagem:
+        numeros.append(ord(i))
+    for i in chave:
+        chavao.append(ord(i))
+    saida=""
+    for i in range(len(numeros)):
+        letra=(numeros[i]+chavao[i])%26+65
+        saida+=chr(letra)
+    return saida
+
+def one_time_pad_decrypt(cripto,chave):
+    numeros=[]
+    chavao=[]
+    for i in cripto:
+        numeros.append(ord(i))
+    for i in chave:
+        chavao.append(ord(i))
+    saida=""
+    for i in range(len(numeros)):
+        letra=(numeros[i]-chavao[i]+26)%26+65
+        saida+=chr(letra)
+    return saida
+
+print(one_time_pad_decrypt("EQNVZ","XMCKL"))
+print(one_time_pad_encrypt("HELLO","XMCKL"))
