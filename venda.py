@@ -125,6 +125,51 @@ dic3={}
 for key,value in dic.items():
     dic3[key]=dic[key]+dic2[key]
 
-print(dic)
-print(dic2)
-print(dic3)
+
+# vetor=[1,2,3]
+# matriz=[[3,4,66],[32,3,-3],[-23,-42,32],[2,2,2]]
+# linhas=len(matriz)
+# colunas=len(matriz[0])
+# j=0
+# vet2=[]
+# for i in range(linhas):
+#     somatorio=0
+#     for j in range(colunas):
+#         elemento=matriz[i][j]
+#         novo=elemento*vetor[j] ----> Isso multiplica vetor por matriz
+#         somatorio+=novo
+#     vet2.append(somatorio)
+
+# print(vet2)
+
+# Em baixo tentarei matrix x matriz
+
+vetor=[[1,2,3,7,8],
+       [32,-34,53,45,-89],
+       [13,0,54,2,0]
+       ]
+
+matriz=[[3,4,66],
+        [32,3,-3],
+        [-23,-42,32],
+        [2,2,2],
+        [4,5,7]
+        ]
+
+linhas=len(vetor)
+colunas=len(vetor[0])
+
+vet2=[]
+for i in range(linhas):
+    linhanova=[]
+    somatorio=0
+    for j in range(len(matriz[0])):
+        for k in range(len(matriz)):
+            elemento=vetor[i][k]
+            novo=elemento*matriz[k][j]
+            somatorio+=novo
+        linhanova.append(somatorio)
+        somatorio=0
+    vet2.append(linhanova)
+
+print(vet2)
